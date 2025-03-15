@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+    
     const toggleButtons = {
         "show_email_option": "email",
         "show_relationship_option": "relationship",
@@ -113,54 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "show_birthday_option": "birthday-section",
         "show_note_option": "user_note"
     };
-    
+
     Object.entries(toggleButtons).forEach(([buttonId, elementId]) => {
         document.getElementById(buttonId).addEventListener("click", () => {
-            const element = document.getElementById(elementId);
-            element.classList.toggle("hidden");
-    
-            let inputField;
-            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-                inputField = element; 
-            } else {
-                inputField = element.querySelector("input, textarea");
-            }
-            if (inputField && inputField.value.trim() === "") {
-                element.classList.add("hidden");
-            }
-            console.log(inputField.value.trim() === "")
+            document.getElementById(elementId).classList.toggle("hidden");
         });
     });
-    
-    Object.values(toggleButtons).forEach((elementId) => {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-    
-        let inputField;
-        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-            inputField = element;
-        } else {
-            inputField = element.querySelector("input, textarea");
-        }
-    
-        if (!inputField) return;
-    
-        inputField.addEventListener("blur", () => {
-            if (inputField.value.trim() === "") {
-                element.classList.add("hidden");
-            }
-        });
+
+    document.getElementById("display-birthday").addEventListener("click", function () {
+        this.classList.add("hidden");
+        document.getElementById("birthday").classList.remove("hidden");
     });
-    
-    const birthdaySection = document.getElementById("birthday-section");
-    if (birthdaySection) {
-        const birthdayInput = document.getElementById("birthday");
-        birthdayInput.addEventListener("blur", () => {
-            if (birthdayInput.value.trim() === "") {
-                birthdaySection.classList.add("hidden");
-            }
-        });
-    }
     
     saveForm.addEventListener("submit", async function (event) {
         event.preventDefault();
