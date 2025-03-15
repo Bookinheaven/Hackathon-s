@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="/stylesheets/index.css">
+<div id="loading-screen">
+    <!-- <img src="/images/logo.png" alt="App Logo"> -->
+    <div class="spinner"></div>
+</div>
+<div id="splash-screen">
+    <img src="/images/logo.jpeg" alt="App Logo" id="splash-logo">
+</div>
+
+<div id="show_message">
+
+</div>
+<div id="modal-overlay">
+
+<div id="center-panel" class="hidden">
+    <div class="dialog-box">
+        <h2 id="dialog-title">Add Contact</h2>
+        <form id="save-form">
+            <input type="hidden" id="contact-id" name="contact-id">
+            <input type="text" name="first-name" id="first-name" placeholder="First Name" autocomplete="off" spellcheck="false" required>
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name" autocomplete="off" spellcheck="false" >
+            
+            <div id="phone-section">
+                <div class="phone-entry">
+                    <select name="phone-type" class="phone-type">
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="other">Other</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="text" name="custom-type" class="custom-type hidden" placeholder="Enter Custom Type" autocomplete="off">
+                    <input type="number" name="phone-number" placeholder="Phone Number" autocomplete="off" spellcheck="false" required>
+                    <button type="button" class="remove-phone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>            
+
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" id="add-phone" class="di-button">Add Phone</button>
+            
+            <button type="button" id="show_email_option" class="di-button">Add Email</button>
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" spellcheck="false" class="hidden">
+            
+            <button type="button" id="show_relationship_option" class="di-button">Add Relationship</button>
+            <input type="text" name="relationship" id="relationship" placeholder="Contact Relationship" autocomplete="off" spellcheck="false" class="hidden">
+            
+            <button type="button" id="show_address_option" class="di-button">Add Address</button>
+            <div id="address-section" class="hidden">
+                <h3>Address:</h3>
+                <input type="text" name="address" id="address" placeholder="Enter Address" autocomplete="off">
+            </div>
+
+            <button type="button" id="show_birthday_option" class="di-button">Add Birthday</button>
+            <div id="birthday-section" class="hidden">
+                <h3>Birthday:</h3>
+                <p id="display-birthday" class="editable">Click to add/edit birthday</p>
+                <input type="date" name="birthday" id="birthday" class="hidden">
+            </div>
+            
+            <button type="button" id="show_note_option"  class="di-button">Add Note</button>
+            <textarea id="user_note" class="hidden" placeholder="Enter additional notes..."></textarea>
+            
+            <div class="dialog-actions">
+                <button type="button" id="cancel-dialog">Cancel</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>  
+    </div>
+</div>
+
+</div>     
+<div id="center-view">
+    <h1><span id="cap">C</span>ontacts</h1>
+
+    <div id="tool-bar">
+        <div id="search-container">
+            <input id="search" type="text" placeholder="Search" aria-label="Search contacts">
+            <button id="clear-search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>            
+            </button>
+        </div>        
+        <button id="add-contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+        </button>
+
+    </div>
+
+    <div id="contact-list">
+        <table id="contact-table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone Number(s)</th>
+                    <th>Email</th>
+                    <th>Relationship</th>
+                    <th>Address</th>
+                    <th>Birthday</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contact-list-data">
+            </tbody>
+        </table>
+    
+        <p id="no-contacts">No contacts available. Add a new contact!</p>
+    </div>
+
+    <script src="/javascripts/index.js"></script>
